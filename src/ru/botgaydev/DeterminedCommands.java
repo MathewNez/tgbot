@@ -4,5 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DeterminedCommands {
-    public static Map<String, String> answers = new HashMap<String, String>();
+    public  Map<String, String> answers = new HashMap<>();
+
+    public DeterminedCommands() {
+        answers.put("/help", "help...");
+    }
 }
