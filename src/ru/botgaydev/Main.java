@@ -7,14 +7,15 @@ public class Main {
     //HOMEWORK
     // 3 класса: 1.обработка вход. данных с консоли, 2. Логика, 3. связь с первыми двумя, 4. Тесты
 
-    private final String helloMessage =
+    public final String helloMessage =
             "Wassup. I'm bot. I can sell some useful info. For details, use \"/help\"";
     private final Console communicationMethod = new Console();
 
     public void openIStream() {
         while (true) {
             try {
-                String request = communicationMethod.read();    //TODO создать класс под сущность Request
+                Request request =  new Request();
+                request.body = communicationMethod.read();
             } catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
