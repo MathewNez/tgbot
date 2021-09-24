@@ -16,15 +16,5 @@ public class Console {
     public static void write(String str) {
         System.out.println(str);
     }
-
-    public static void openIStream() {
-        while (true) {
-            try {
-                read();
-            } catch (IOException e) {
-                System.out.println("Sorry, something went wrong, here are the details:");
-                e.printStackTrace();
-            }
-        }
-    }
 }
+
