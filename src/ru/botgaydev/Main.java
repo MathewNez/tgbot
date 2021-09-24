@@ -7,13 +7,14 @@ public class Main {
     //HOMEWORK
     // 3 класса: 1.обработка вход. данных с консоли, 2. Логика, 3. связь с первыми двумя, 4. Тесты
 
-    private static final String helloMessage =
+    private final String helloMessage =
             "Wassup. I'm bot. I can sell some useful info. For details, use \"/help\"";
+    private final Console communicationMethod = new Console();
 
-    public static void openIStream() {
+    public void openIStream() {
         while (true) {
             try {
-                String request = Console.read();    //TODO создать класс под сущность Request
+                String request = communicationMethod.read();    //TODO создать класс под сущность Request
             } catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
@@ -21,12 +22,13 @@ public class Main {
         }
     }
 
-    private static void startBot() {
-        Console.write(helloMessage);
+    private void startBot() {
+        communicationMethod.write(helloMessage);
         openIStream();
     }
 
     public static void main(String[] args) {
-        startBot();
+        Main bot = new Main();
+        bot.startBot();
     }
 }
