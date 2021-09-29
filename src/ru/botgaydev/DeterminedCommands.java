@@ -14,9 +14,11 @@ public class DeterminedCommands {
         // Для комманд с параметрами создадим отдельный класс по ходу дела. Щас нам бы пока с однозначными логику наладить
     }
 
-    public Response method(Request req) { //переназвать метод на нормальное понятное имя
+    public Response handle(Request req) {
         //добавить логику
-        return new Response();
+        Response response = new Response();
+        response.body = answers.get(req.body);
+        return response;
     }
 
 }
