@@ -10,16 +10,20 @@ public class Main {
     public final String helloMessage =
             "Wassup. I'm bot. I can sell some useful info. For details, use \"/help\"";
     private final Console communicationMethod = new Console();
+    private final DeterminedCommands logic = new DeterminedCommands();
 
     public void openIStream() {
         while (true) {
+            Request request =  new Request();
             try {
-                Request request =  new Request();
                 request.body = communicationMethod.read();
             } catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
             }
+            Response response;
+            response = logic.method(request);
+            communicationMethod.write(response.body);
         }
     }
 
