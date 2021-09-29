@@ -18,6 +18,9 @@ public class DeterminedCommands {
         //добавить логику
         Response response = new Response();
         response.body = answers.get(req.body);
+        if (response.body == null){
+            response.body = "Ya ne znau ety command";
+        }
         return response;
     }
 
