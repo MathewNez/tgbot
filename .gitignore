@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+tgbot.iml
 
 # Folder with compiled files
 out/
