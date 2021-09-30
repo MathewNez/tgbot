@@ -1,4 +1,4 @@
-package ru.botgaydev;
+package ru.botgaydev.bot;
 
 import java.io.IOException;
 
@@ -21,8 +21,7 @@ public class Main {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
             }
-            Response response;
-            response = logic.handle(request);
+            Response response = logic.handle(request);
             communicationMethod.write(response.body);
         }
     }

@@ -1,4 +1,4 @@
-package ru.botgaydev;
+package ru.botgaydev.bot;
 
 public class Response {
     public String body;

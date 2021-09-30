@@ -1,7 +1,5 @@
-package ru.botgaydev;
-
-import org.junit.Assert;
 import org.junit.Test;
+import ru.botgaydev.bot.Main;
 
 import static org.junit.Assert.*;
 

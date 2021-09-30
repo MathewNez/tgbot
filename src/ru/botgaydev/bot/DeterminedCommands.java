@@ -1,4 +1,4 @@
-package ru.botgaydev;
+package ru.botgaydev.bot;
 
 import java.util.HashMap;
 import java.util.Map;
