@@ -6,3 +6,4 @@
 4. переименовать пэкэдж в ru.botgaydev.bot
 5. добавить verify в determined commands
 6. добавить  maven
+7. hybernate
