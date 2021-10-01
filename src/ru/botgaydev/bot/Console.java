@@ -10,7 +10,7 @@ public class Console {
 
     public Request read() throws IOException {
         Request request = new Request();
-        request.body = reader.nextLine();
+        request.setBody(reader.nextLine());
         return request;
     }
 

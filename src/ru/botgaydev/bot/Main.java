@@ -22,7 +22,7 @@ public class Main {
                 e.printStackTrace();
             }
             Response response = logic.handle(request);
-            communicationMethod.write(response.body);
+            communicationMethod.write(response.getBody());
         }
     }
 
