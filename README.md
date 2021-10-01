@@ -1,9 +1,5 @@
 # tgbot
 ## Замечания
 1. Дописать тесты - Влад
-2. инкапсулировать Response Request
-3. пусть read  возвращает сразу Request
-4. переименовать пэкэдж в ru.botgaydev.bot
-5. добавить verify в determined commands
-6. добавить  maven
-7. hybernate
+5. добавить verify в determined commands (сначала надо согласовать этот пункт)
+7. hybernate (и этот тоже согласовать)
