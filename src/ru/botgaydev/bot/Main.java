@@ -14,9 +14,9 @@ public class Main {
 
     public void openIStream() {
         while (true) {
-            Request request =  new Request();
+            Request request = new Request();
             try {
-                request.body = communicationMethod.read();
+                request = communicationMethod.read();
             } catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();

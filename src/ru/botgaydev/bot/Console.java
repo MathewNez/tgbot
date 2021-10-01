@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class Console {
     private final Scanner reader = new Scanner(System.in);
 
-    public String read() throws IOException {
-        return reader.nextLine();
+    public Request read() throws IOException {
+        Request request = new Request();
+        request.body = reader.nextLine();
+        return request;
     }
 
     public void write(String str) {
