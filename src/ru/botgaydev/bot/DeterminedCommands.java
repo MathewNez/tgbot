@@ -46,4 +46,10 @@ public class DeterminedCommands {
         return response;
     }
 
+    public boolean verify(Request req) {
+//        if (req.getBody() in answers.getKeys())
+//            return true;
+        return false;
+    }
+
 }
