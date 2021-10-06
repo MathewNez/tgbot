@@ -17,7 +17,8 @@ public class Main {
             Request request = new Request();
             try {
                 request = communicationMethod.read();
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
             }
