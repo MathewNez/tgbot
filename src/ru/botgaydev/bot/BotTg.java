@@ -8,11 +8,11 @@ import java.util.concurrent.CompletableFuture;
 
 import java.util.Map;
 
-public class BotTgApi extends TelegramLongPollingBot {
+public class BotTg extends TelegramLongPollingBot {
     private final String BOT_NAME;
     private final String BOT_TOKEN;
 
-    public BotTgApi(String botName, String botToken) {
+    public BotTg(String botName, String botToken) {
         this.BOT_NAME = botName;
         this.BOT_TOKEN = botToken;
     }
@@ -33,7 +33,7 @@ public class BotTgApi extends TelegramLongPollingBot {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
             SendMessage message = new SendMessage(); // Create a SendMessage object with mandatory fields
-            message.setChatId(update.getMessage().getChatId().toString());
+            message.setChatId(update.getMessage().getChatId().toString());  //TODO use DeterminedCommands for logic
             message.setText(update.getMessage().getText());
 
             try {
