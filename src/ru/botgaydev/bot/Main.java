@@ -14,15 +14,16 @@ public class Main {
 
     public void openIStream() {
         while (true) {
-            Request request =  new Request();
+            Request request = new Request();
             try {
-                request.body = communicationMethod.read();
-            } catch (IOException e) {
+                request = communicationMethod.read();
+            }
+            catch (IOException e) {
                 System.out.println("Sorry, something went wrong, here are the details:");
                 e.printStackTrace();
             }
             Response response = logic.handle(request);
-            communicationMethod.write(response.body);
+            communicationMethod.write(response.getBody());
         }
     }
 

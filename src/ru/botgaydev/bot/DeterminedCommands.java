@@ -39,11 +39,17 @@ public class DeterminedCommands {
     public Response handle(Request req) {
         //добавить логику
         Response response = new Response();
-        response.body = answers.get(req.body);
-        if (response.body == null){
-            response.body = "Ya ne znau ety command";
+        response.setBody(answers.get(req.getBody()));
+        if (response.getBody() == null){
+            response.setBody("Unknown command. Please, see \"/help\" for list of available commands.");
         }
         return response;
+    }
+
+    public boolean verify(Request req) {
+//        if (req.getBody() in answers.getKeys())
+//            return true;
+        return false;
     }
 
 }
