@@ -1,3 +1,5 @@
+package ru.botgaydev.bot;
+
 import org.junit.Test;
 import ru.botgaydev.bot.Main;
 
