@@ -33,8 +33,12 @@ public class BotTg extends TelegramLongPollingBot {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
             SendMessage message = new SendMessage(); // Create a SendMessage object with mandatory fields
-            message.setChatId(update.getMessage().getChatId().toString());  //TODO use DeterminedCommands for logic
-            message.setText(update.getMessage().getText());
+            message.setChatId(update.getMessage().getChatId().toString());
+            Request req = new Request();
+            req.setBody(update.getMessage().getText());
+            DeterminedCommands logic = new DeterminedCommands();
+            Response answer = logic.handle(req);
+            message.setText(answer.getBody());
 
             try {
                 execute(message); // Call method to send the message
