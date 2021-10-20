@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 tgbot.iml
+target/
 
 # Folder with compiled files
 out/
@@ -29,4 +30,4 @@ hs_err_pid*
 # JetBrains files
 .idea/
 # Resources
-resources/config.properties
+src/ru/botgaydev/bot/config.properties
