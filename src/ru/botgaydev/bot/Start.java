@@ -16,7 +16,7 @@ public class Start {
             botsApi.registerBot(new BotTg("GoodsSeller", getToken()));
     }
     private static String getToken() throws IOException {
-        String rootPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("")).getPath();
+        String rootPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("")).getPath();     //TODO move properties to resources start.class.getClassLoader
         String appConfigPath = rootPath + "ru/botgaydev/bot/config.properties";
         Properties prop = new Properties();
         prop.load(new FileInputStream(appConfigPath));

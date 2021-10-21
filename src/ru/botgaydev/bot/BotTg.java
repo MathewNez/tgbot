@@ -36,7 +36,7 @@ public class BotTg extends TelegramLongPollingBot {
             message.setChatId(update.getMessage().getChatId().toString());
             Request req = new Request();
             req.setBody(update.getMessage().getText());
-            DeterminedCommands logic = new DeterminedCommands();
+            DeterminedCommands logic = new DeterminedCommands(); //TODO make logic as a class field
             Response answer = logic.handle(req);
             message.setText(answer.getBody());
 
