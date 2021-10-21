@@ -14,8 +14,8 @@ public class Console {
         return request;
     }
 
-    public void write(String str) {
-        System.out.println(str);
+    public void write(Response answer) {
+        System.out.println(answer.getBody());
     }   //TODO make Response, not String
 }
 

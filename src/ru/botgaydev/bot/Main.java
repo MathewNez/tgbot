@@ -7,10 +7,14 @@ public class Main {
     //HOMEWORK
     // 3 класса: 1.обработка вход. данных с консоли, 2. Логика, 3. связь с первыми двумя, 4. Тесты
 
-    public final String helloMessage =
-            "Wassup. I'm bot. I can sell some useful info. For details, use \"/help\"";
+    public final Response helloMessage;
     private final Console communicationMethod = new Console();
     private final DeterminedCommands logic = new DeterminedCommands();
+
+    public Main() {
+        helloMessage = new Response();
+        helloMessage.setBody("Wassup. I'm bot. I can sell some useful info. For details, use \"/help\"");
+    }
 
     public void openIStream() {
         while (true) {
@@ -23,7 +27,7 @@ public class Main {
                 e.printStackTrace();
             }
             Response response = logic.handle(request);
-            communicationMethod.write(response.getBody());
+            communicationMethod.write(response);
         }
     }
 
