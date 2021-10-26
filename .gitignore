@@ -30,4 +30,4 @@ hs_err_pid*
 # JetBrains files
 .idea/
 # Resources
-src/ru/botgaydev/bot/config.properties
+resources/config.properties
