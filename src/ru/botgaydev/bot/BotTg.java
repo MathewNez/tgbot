@@ -11,6 +11,7 @@ import java.util.Map;
 public class BotTg extends TelegramLongPollingBot {
     private final String BOT_NAME;
     private final String BOT_TOKEN;
+    DeterminedCommands logic = new DeterminedCommands();
 
     public BotTg(String botName, String botToken) {
         this.BOT_NAME = botName;
@@ -36,7 +37,6 @@ public class BotTg extends TelegramLongPollingBot {
             message.setChatId(update.getMessage().getChatId().toString());
             Request req = new Request();
             req.setBody(update.getMessage().getText());
-            DeterminedCommands logic = new DeterminedCommands(); //TODO make logic as a class field
             Response answer = logic.handle(req);
             message.setText(answer.getBody());
 
