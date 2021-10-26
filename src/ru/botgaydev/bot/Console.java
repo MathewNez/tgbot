@@ -16,6 +16,6 @@ public class Console {
 
     public void write(Response answer) {
         System.out.println(answer.getBody());
-    }   //TODO make Response, not String
+    }
 }
 
