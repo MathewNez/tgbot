@@ -31,3 +31,4 @@ hs_err_pid*
 .idea/
 # Resources
 resources/config.properties
+resources/hibernate.cfg.xml
