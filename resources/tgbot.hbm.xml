@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ru.botgaydev.entity.Accounts" table="accounts" catalog="tgbot">
+        <id name="id" type="java.lang.Integer">
+            <column name="acc_id" />
+            <generator class="identity" />
+        </id>
+        <property name="tgId" type="string">
+            <column name="acc_tg_id" length="150" not-null="true" />
+        </property>
+        <property name="tgUserName" type="string">
+            <column name="acc_tg_username" length="150" not-null="true" />
+        </property>
+        <property name="balance" type="java.lang.Integer">
+            <column name="acc_balance" not-null="true" />
+        </property>
+    </class>
+
+    <class name="ru.botgaydev.entity.Goods" table="goods" catalog="tgbot">
+        <id name="id" type="java.lang.Integer">
+            <column name="good_id" />
+            <generator class="identity" />
+        </id>
+        <property name="descr" type="string">
+            <column name="good_descr" length="150" not-null="true" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="good_price" not-null="true" />
+        </property>
+        <property name="left" type="java.lang.Integer">
+            <column name="good_left" not-null="true" />
+        </property>
+        <property name="available" type="java.lang.Integer">
+            <column name="good_available" not-null="true" />
+        </property>
+    </class>
+
+    <class name="ru.botgaydev.entity.TransactionHistory" table="transaction_history" catalog="tgbot">
+        <id name="id" type="java.lang.Integer">
+            <column name="tra_id" />
+            <generator class="identity" />
+        </id>
+        <property name="sum" type="java.lang.Integer">
+            <column name="tra_sum" not-null="true" />
+        </property>
+        <property name="descr" type="string">
+            <column name="tra_descr" length="150" not-null="true" />
+        </property>
+        <property name="accId" type="java.lang.Integer">
+            <column name="tra_acc_id" not-null="true" />
+        </property>
+        <property name="method" type="java.lang.Integer">
+            <column name="tra_method" not-null="true" />
+        </property>
+        <property name="date" type="java.sql.Timestamp">
+            <column name="tra_date" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
