@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="ru.botgaydev.entity.Accounts" table="accounts" catalog="tgbot">
+    <class name="ru.botgaydev.bot.entity.Account" table="accounts" catalog="tgbot">
         <id name="id" type="java.lang.Integer">
             <column name="acc_id" />
             <generator class="identity" />
@@ -19,7 +19,7 @@
         </property>
     </class>
 
-    <class name="ru.botgaydev.entity.Goods" table="goods" catalog="tgbot">
+    <class name="ru.botgaydev.bot.entity.Good" table="goods" catalog="tgbot">
         <id name="id" type="java.lang.Integer">
             <column name="good_id" />
             <generator class="identity" />
@@ -38,7 +38,7 @@
         </property>
     </class>
 
-    <class name="ru.botgaydev.entity.TransactionHistory" table="transaction_history" catalog="tgbot">
+    <class name="ru.botgaydev.bot.entity.Transaction" table="transaction_history" catalog="tgbot">
         <id name="id" type="java.lang.Integer">
             <column name="tra_id" />
             <generator class="identity" />
