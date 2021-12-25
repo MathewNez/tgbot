@@ -2,14 +2,12 @@ package ru.botgaydev.bot;
 
 import java.util.*;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import ru.botgaydev.bot.persistence.HibernateUtil;
 import ru.botgaydev.bot.entity.Good;
+import ru.botgaydev.bot.service.GoodService;
 
 public class DeterminedCommands {
     public  Map<String, String> answers = new HashMap<>();
-    Session session;
+    GoodService goodService = new GoodService();
 
 
     public DeterminedCommands() {
@@ -18,9 +16,9 @@ public class DeterminedCommands {
                 "продукта / услуги в боте, противоречащее законодательству РФ, запрещено!\n" +
                 "\n" +
                 "Список команд\n" +
-//                "/availability - товары в наличии\n" +
-                "/buy - категории к покупке\n" +
-                "/deposit - пополнение баланса\n" +
+                "/availability - товары в наличии\n" +
+                "/buy - купить товар\n" +
+//                "/deposit - пополнение баланса\n" +
 //                "/find - поиск товара\n" +
                 "/account - информация об аккаунте\n" +
 //                "/ref_code - реферальный код\n" +
@@ -31,17 +29,14 @@ public class DeterminedCommands {
                 "Заведующий по заведующим: @m3f3w_1337\n" +
                 "Заведующий по заведению: @vladslav008");
 //        answers.put("/availability", "я должен показать, что есть в наличии");
-        answers.put("/buy", "показываю категории доступные к покупке");
-        answers.put("/deposit", "пополнение баланса");
+//        answers.put("/buy", "показываю категории доступные к покупке");
+//        answers.put("/deposit", "пополнение баланса");
 //        answers.put("/find", "выполняю поиск по заголовкам");
         //answers.put("/back", "возвращаю на шаг назад или в главное меню, потом решим");
         answers.put("/account", "инфо об акканте: ID, логин, счёт");
 //        answers.put("/ref_code", "реферальный код для приглашения новых пользователей");
 //        answers.put("/ref_list", "список рефералов");
         answers.put("/rules", rules_text);
-        System.out.println("Maven + Hibernate + MySQL");
-        session = HibernateUtil.getSessionFactory().openSession();
-
     }
 
     public String rules_text = "1. Возврат денежных средств осуществляется только на баланс бота.\n" +
@@ -56,32 +51,37 @@ public class DeterminedCommands {
 
     public Response handle(Request req) {
         Response response = new Response();
-        if(Objects.equals(req.getBody(), "/buy")) {
-            Query query = session.createQuery("from Good where available = 1");
-            ArrayList<Good> goodsArr = new ArrayList<Good>(query.list());
-            List<String> rows = new ArrayList<>();
-            for(Good good : goodsArr) {
-                String row = String.format("ID %s | %s | %s | %s",
-                        good.getId(), good.getDescr(), good.getPrice(), good.getLeft());
-                rows.add(row);
-            }
-            String responceBody = String.join("\n", rows);
-            System.out.println(goodsArr);
-            response.setBody(responceBody);
+        String responseBody = null;
+        switch (req.getBody()) {
+            case ("/availability"):
+                List<Good> goodsArr = goodService.findAll();
+                List<String> rows = new ArrayList<>();
+                for(Good good : goodsArr) {
+                    String row = String.format("ID %s | %s | %s руб | Остаток: %s",
+                            good.getId(), good.getDescr(), good.getPrice(), good.getLeft());
+                    rows.add(row);
+                    responseBody = String.join("\n", rows);
+                }
+                break;
+            case ("/buy"):
+                break;
+            case ("/account"):
+                break;
+            default:
+                responseBody = answers.get(req.getBody());
+
         }
-        else {
-            response.setBody(answers.get(req.getBody()));
-        }
+        response.setBody(responseBody);
         if (response.getBody() == null){
             response.setBody("Unknown command. Please, see \"/help\" for list of available commands.");
         }
         return response;
     }
 
-    public boolean verify(Request req) {
-//        if (req.getBody() in answers.getKeys())
-//            return true;
-        return false;
-    }
+//    public boolean verify(Request req) {
+////        if (req.getBody() in answers.getKeys())
+////            return true;
+//        return false;
+//    }
 
 }
