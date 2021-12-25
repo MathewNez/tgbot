@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
     <class name="ru.botgaydev.bot.entity.Account" table="accounts" catalog="tgbot">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="string">
             <column name="acc_id" />
             <generator class="identity" />
         </id>
@@ -20,7 +20,7 @@
     </class>
 
     <class name="ru.botgaydev.bot.entity.Good" table="goods" catalog="tgbot">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="string">
             <column name="good_id" />
             <generator class="identity" />
         </id>
@@ -38,8 +38,8 @@
         </property>
     </class>
 
-    <class name="ru.botgaydev.bot.entity.Transaction" table="transaction_history" catalog="tgbot">
-        <id name="id" type="java.lang.Integer">
+    <class name="ru.botgaydev.bot.entity.TransactionHist" table="transaction_history" catalog="tgbot">
+        <id name="id" type="string">
             <column name="tra_id" />
             <generator class="identity" />
         </id>

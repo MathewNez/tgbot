@@ -3,7 +3,7 @@ package ru.botgaydev.bot.entity;
 import java.sql.Timestamp;
 
 public class Transaction {
-    private Integer id;
+    private String id;
     private Integer sum;
     private String descr;
     private Integer accId;
@@ -62,11 +62,11 @@ public class Transaction {
         this.sum = sum;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
