@@ -6,7 +6,6 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -16,10 +15,9 @@ public class Start {
             botsApi.registerBot(new BotTg("GoodsSeller", getToken()));
     }
     private static String getToken() throws IOException {
-        String rootPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("")).getPath();
-        String appConfigPath = rootPath + "ru/botgaydev/bot/config.properties";
+        String rootPath = Objects.requireNonNull(Start.class.getClassLoader().getResource("config.properties")).getPath();     //TODO move properties to resources start.class.getClassLoader
         Properties prop = new Properties();
-        prop.load(new FileInputStream(appConfigPath));
+        prop.load(new FileInputStream(rootPath));
         return prop.getProperty("token");
     }
 }

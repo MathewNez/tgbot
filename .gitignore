@@ -30,4 +30,5 @@ hs_err_pid*
 # JetBrains files
 .idea/
 # Resources
-resources/
+resources/config.properties
+resources/hibernate.cfg.xml

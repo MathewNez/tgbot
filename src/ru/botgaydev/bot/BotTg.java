@@ -4,13 +4,11 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import java.util.concurrent.CompletableFuture;
-
-import java.util.Map;
 
 public class BotTg extends TelegramLongPollingBot {
     private final String BOT_NAME;
     private final String BOT_TOKEN;
+    DeterminedCommands logic = new DeterminedCommands();
 
     public BotTg(String botName, String botToken) {
         this.BOT_NAME = botName;
@@ -36,10 +34,7 @@ public class BotTg extends TelegramLongPollingBot {
             message.setChatId(update.getMessage().getChatId().toString());
             Request req = new Request();
             req.setBody(update.getMessage().getText());
-            DeterminedCommands logic = new DeterminedCommands();
-            Response answer = logic.handle(req);
-            message.setText(answer.getBody());
-
+            message.setText(logic.handle(req).getBody());
             try {
                 execute(message); // Call method to send the message
             } catch (TelegramApiException e) {
