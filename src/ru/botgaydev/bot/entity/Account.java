@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private Integer id;
     private String tgId;
     private String tgUserName;
     private Integer balance;
@@ -19,11 +19,11 @@ public class Account implements Serializable {
         this.tgUserName = tgUserName;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

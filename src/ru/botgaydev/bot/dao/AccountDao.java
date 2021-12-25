@@ -8,7 +8,7 @@ import java.util.List;
 
 import static ru.botgaydev.bot.persistence.HibernateUtil.getSessionFactory;
 
-public class AccountDao implements DaoInterface<Account, String> {
+public class AccountDao implements DaoInterface<Account> {
     private Session currentSession;
     private Transaction currentTransaction;
 
@@ -59,7 +59,7 @@ public class AccountDao implements DaoInterface<Account, String> {
         getCurrentSession().update(entity);
     }
 
-    public Account findById(String id) {
+    public Account findById(Integer id) {
         return (Account) getCurrentSession().get(Account.class, id);
     }
 
