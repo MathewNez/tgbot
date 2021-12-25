@@ -8,11 +8,11 @@ import java.util.List;
 
 import static ru.botgaydev.bot.persistence.HibernateUtil.getSessionFactory;
 
-public class TransactionDao implements DaoInterface<TransactionHist> {
+public class TransactionHistDao implements DaoInterface<TransactionHist> {
     private Session currentSession;
     private Transaction currentTransaction;
 
-    public TransactionDao() {
+    public TransactionHistDao() {
 
     }
 
