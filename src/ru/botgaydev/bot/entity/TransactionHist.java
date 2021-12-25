@@ -2,7 +2,7 @@ package ru.botgaydev.bot.entity;
 
 import java.sql.Timestamp;
 
-public class Transaction {
+public class TransactionHist {
     private String id;
     private Integer sum;
     private String descr;
@@ -10,11 +10,11 @@ public class Transaction {
     private Integer method;
     private Timestamp date;
 
-    public Transaction() {
+    public TransactionHist() {
 
     }
 
-    public Transaction(Integer sum, String descr, Integer accId, Integer method, Timestamp date) {
+    public TransactionHist(Integer sum, String descr, Integer accId, Integer method, Timestamp date) {
         this.sum = sum;
         this.descr = descr;
         this.accId = accId;

@@ -1,7 +1,7 @@
 package ru.botgaydev.bot.entity;
 
 public class Good {
-    private Integer id;
+    private String id;
     private String descr;
     private Integer price;
     private Integer left;
@@ -50,11 +50,11 @@ public class Good {
         this.descr = descr;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
