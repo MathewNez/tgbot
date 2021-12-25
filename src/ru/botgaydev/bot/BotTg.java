@@ -3,20 +3,12 @@ package ru.botgaydev.bot;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BotTg extends TelegramLongPollingBot {
     private final String BOT_NAME;
     private final String BOT_TOKEN;
     DeterminedCommands logic = new DeterminedCommands();
-    ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-    List<KeyboardRow> keyboard = new ArrayList<>();
-    KeyboardRow row = new KeyboardRow();
 
     public BotTg(String botName, String botToken) {
         this.BOT_NAME = botName;
@@ -42,9 +34,7 @@ public class BotTg extends TelegramLongPollingBot {
             message.setChatId(update.getMessage().getChatId().toString());
             Request req = new Request();
             req.setBody(update.getMessage().getText());
-            Response answer = logic.handle(req);
-            message.setText(answer.getBody());
-
+            message.setText(logic.handle(req).getBody());
             try {
                 execute(message); // Call method to send the message
             } catch (TelegramApiException e) {
