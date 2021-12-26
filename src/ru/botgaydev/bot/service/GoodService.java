@@ -7,13 +7,9 @@ import java.util.List;
 
 public class GoodService {
     private static GoodDao goodDao;
-//    private static AccountDao accountDao;
-//    private static TransactionDao transactionDao;
 
     public GoodService() {
         goodDao = new GoodDao();
-//        goodDao = new GoodDao();
-//        transactionDao = new TransactionDao();
     }
 
     public void persist(Good entity) {
@@ -58,12 +54,4 @@ public class GoodService {
     public GoodDao goodDao() {
         return goodDao;
     }
-
-//    public AccountDao accountDao() {
-//        return accountDao;
-//    }
-//
-//    public TransactionDao transactionDao() {
-//        return transactionDao;
-//    }
 }

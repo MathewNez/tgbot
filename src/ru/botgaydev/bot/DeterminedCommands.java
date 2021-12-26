@@ -28,14 +28,7 @@ public class DeterminedCommands {
                 "Контакты\n" +
                 "Заведующий по заведующим: @m3f3w_1337\n" +
                 "Заведующий по заведению: @vladslav008");
-//        answers.put("/availability", "я должен показать, что есть в наличии");
-//        answers.put("/buy", "показываю категории доступные к покупке");
-//        answers.put("/deposit", "пополнение баланса");
-//        answers.put("/find", "выполняю поиск по заголовкам");
-        //answers.put("/back", "возвращаю на шаг назад или в главное меню, потом решим");
         answers.put("/account", "инфо об акканте: ID, логин, счёт");
-//        answers.put("/ref_code", "реферальный код для приглашения новых пользователей");
-//        answers.put("/ref_list", "список рефералов");
         answers.put("/rules", rules_text);
     }
 
@@ -50,6 +43,9 @@ public class DeterminedCommands {
             "8. Администрация оставляет за собой право заблокировать любого пользователя, без возмещения средств на балансе.\n";
 
     public Response handle(Request req) {
+        if (Objects.equals(req.getBody(), "/start")) {
+            req.setBody("/help");
+        }
         Response response = new Response();
         String responseBody = null;
         switch (req.getBody()) {
@@ -77,11 +73,5 @@ public class DeterminedCommands {
         }
         return response;
     }
-
-//    public boolean verify(Request req) {
-////        if (req.getBody() in answers.getKeys())
-////            return true;
-//        return false;
-//    }
 
 }
